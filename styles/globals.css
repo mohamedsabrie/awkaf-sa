@@ -1,0 +1,18 @@
+/* ./styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    body{
+        @apply bg-gray-100
+    }
+}
+
+
+.ant-layout-sider-children{
+    margin-top: 60px;
+}
+.ant-menu.ant-menu-inline-collapsed > .ant-menu-item{
+    padding: 0;
+}
