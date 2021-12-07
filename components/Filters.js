@@ -23,10 +23,9 @@ function Filters() {
         <DropDown
           title="المواسم"
           option1="رمضان"
-          option2="الحج"
-          option3="عيد الأضحى"
+          option2="موسم الحج"
         />
-        <DatePicker />
+        <DatePicker placeholder="اختر التاريخ" />
       </div>
       <div className="text-center">
 
