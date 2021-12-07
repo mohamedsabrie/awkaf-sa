@@ -21,7 +21,7 @@ function Filters() {
           option3="مساجد"
         />
         <DropDown
-          title="المواسم"
+          title="الموسم"
           option1="رمضان"
           option2="موسم الحج"
         />
