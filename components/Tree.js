@@ -13,6 +13,8 @@ const  Tree  = ({handleChange, value,placeholder, data})=> {
         treeData={data}
         placeholder={placeholder}
         onChange={handleChange}
+        treeDefaultExpandAll
+
       />
     );
   }
