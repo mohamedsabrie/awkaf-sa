@@ -57,7 +57,7 @@ class Masraf extends React.Component {
   render() {
     return (
       <TreeSelect
-        style={{ width: '20%' }}
+        // style={{ width: '20%' }}
         value={this.state.value}
         dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
         treeData={treeData}
