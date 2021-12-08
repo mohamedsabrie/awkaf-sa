@@ -14,6 +14,7 @@ const  Tree  = ({handleChange, value,placeholder, data})=> {
         placeholder={placeholder}
         onChange={handleChange}
         treeDefaultExpandAll
+        dropdownStyle	 = {{direction: "rtl"}}
 
       />
     );

@@ -160,9 +160,7 @@ function Filters() {
         اختر الوقف المناسب لك{" "}
       </h1>
 
-      <div className="text-center my-10">
-        <Image src="/saudi_arabia-map.gif" height={500} width={800} />
-      </div>
+      
       <div className="px-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 items-center justify-between max-w-6xl mx-auto py-10 bg-green-500 px-10 rounded-xl my-10 shadow-lg">
           {/* <Area /> */}
@@ -187,6 +185,9 @@ function Filters() {
           />
           <DatePicker placeholder="اختر التاريخ" onChange={handleDateChange} />
         </div>
+        <div className="text-center my-10">
+        <Image src="/saudi_arabia-map.gif" height={500} width={800} />
+      </div>
         <div className="text-center mb-10">
           <button
             onClick={showResults}
