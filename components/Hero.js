@@ -3,7 +3,7 @@ import { Carousel } from "antd";
 const contentStyle = {
   // height: "60vh",
   color: "#fff",
-  background: "#364d79",
+  background: "rgba(16, 185, 129)",
   width: "100%",
   height: "80vh",
 };
