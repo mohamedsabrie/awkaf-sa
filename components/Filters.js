@@ -3,6 +3,7 @@ import DropDown from "../components/ui/DropDown";
 import Image from "next/image";
 import Tree from "./Tree";
 import { useState } from "react";
+import {UploadIcon} from '@heroicons/react/solid'
 
 const seasonData = [
   {
@@ -184,19 +185,19 @@ function Filters() {
           />
           <DatePicker placeholder="اختر التاريخ" onChange={handleDateChange} />
         </div>
-        <div className="text-center my-10">
-          <Image src="/map.jpg" height={500} width={800} />
+        <div className="text-center my-10 overflow-hidden rounded-lg">
+          <Image src="/map.jpg" height={500} width={800} className="hover:scale-110 transition duration-300 rounded-lg"/>
         </div>
         <div className="text-center mb-5">
           <button
             onClick={showResults}
-            className="outline-none ml-5   bg-green-500 text-white px-5 py-2 rounded-md"
+            className="outline-none ml-5   bg-green-500 text-white px-5 py-2 rounded-md transition duration-200 hover:bg-green-400 hover:shadow-lg"
           >
             {show ? "اخفاء النتائج" : "عرض النتائج"}
           </button>
           <button
             onClick={handleReset}
-            className="outline-none  bg-red-500 text-white px-5 py-2 rounded-md"
+            className="outline-none   bg-red-500 text-white px-5 py-2 rounded-md transition duration-200 hover:bg-red-400 hover:shadow-lg"
           >
             اعادة تعيين
           </button>
@@ -204,14 +205,19 @@ function Filters() {
 
         <div className="max-w-4xl mx-auto text-center">
           {show && <Results />}
-          {show && (
-            <button className="outline-none my-10 bg-green-500 text-white px-5 py-2 rounded-md">
+
+          <div className="flex items-center justify-center">
+             {show && (
+            <button className="outline-none my-10 bg-green-500 text-white px-5 py-2 rounded-md transition duration-200 hover:bg-green-400 hover:shadow-lg">
               تصدير كملف اكسيل{" "}
             </button>
           )}
-          <button className="outline-none my-10 mr-5 bg-green-500 text-white px-5 py-2 rounded-md">
+          <button className="outline-none my-10 mr-5 bg-green-500 transition duration-200 hover:bg-green-400 hover:shadow-lg text-white px-5 py-2 rounded-md flex items-center justify-between ">
             رفع ملف اكسيل{" "}
+            <UploadIcon className="h-5 mr-3" />
           </button>
+          </div>
+         
         </div>
       </div>
     </div>

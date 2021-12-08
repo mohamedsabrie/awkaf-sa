@@ -21,9 +21,9 @@ function Navbar() {
       <div className="flex ">
           <Link activeClass="active" to="filters" spy={true} smooth={true} offset={-100} duration={500}>
 
-          <button className="outline-none bg-green-500 text-white px-5 py-2 rounded-md"> الأوقاف الخيرية</button>
+          <button className="outline-none bg-green-500 text-white px-5 py-2 rounded-md transition duration-200 hover:bg-green-400 hover:shadow-lg"> الأوقاف الخيرية</button>
         </Link>
-          <button onClick= {()=> router.push("/login")} className="outline-none mr-5 bg-green-500 text-white px-5 py-2 rounded-md">تسجيل الدخول</button>
+          <button onClick= {()=> router.push("/login")} className="outline-none mr-5 bg-green-500 text-white px-5 py-2 rounded-md transition duration-200 hover:bg-green-400 hover:shadow-lg">تسجيل الدخول</button>
 
       </div>
     </div>
