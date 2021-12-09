@@ -5,6 +5,15 @@ import Tree from "./Tree";
 import { useState } from "react";
 import {UploadIcon} from '@heroicons/react/solid'
 
+
+const { RangePicker } = DatePicker;
+
+import moment from 'moment';
+import 'moment/locale/ar-sa'
+
+moment.locale('ar-sa');
+
+
 const seasonData = [
   {
     title: " موسم رمضان",
@@ -17,24 +26,6 @@ const seasonData = [
 ];
 
 const masrafData = [
-  {
-    title: "الحرم المكي",
-    value: "الحرم المكي",
-    children: [
-      {
-        title: "بئر زمزم",
-        value: "بئر زمزم",
-      },
-      {
-        title: "الكعبةالمشرفة",
-        value: "الكعبة المشرفة",
-      },
-    ],
-  },
-  {
-    title: "الحرم المدني",
-    value: "الحرم المدني",
-  },
   {
     title: "مساجد",
     value: "مساجد",
@@ -57,16 +48,27 @@ const masrafData = [
       },
     ],
   },
+  {
+    title: " سكن",
+    value: " سكن",
+  },
+  {
+    title: " سقيا",
+    value: " سقيا",
+    
+  },
+  
+ 
 ];
 
 const areaData = [
   {
-    title: " مكة",
-    value: "مكة",
+    title: " مكة المكرمة",
+    value: "مكة المكرمة",
   },
   {
-    title: " المدينة",
-    value: "المدينة",
+    title: " المدينة المنورة",
+    value: "المدينة المنورة",
   },
   {
     title: " الطائف",
@@ -77,12 +79,27 @@ const areaData = [
     value: "الرياض",
   },
 ];
+const branchesData = [
+  {
+    title: "  تفرع 1",
+    value: " تفرع 1",
+  },
+  {
+    title: "  تفرع 2 ",
+    value: " تفرع 2",
+  },
+  {
+    title: " تفرع 3",
+    value: "تفرع 3",
+  },
+];
 
 function Filters() {
   const [season, setSeason] = useState(undefined);
   const [masraf, setMasraf] = useState(undefined);
+  const [branch, setBranch] = useState(undefined);
   const [area, setArea] = useState(undefined);
-  const [date, setDate] = useState(null);
+  const [date, setDate] = useState({});
   const [show, setShow] = useState(false);
 
   const handleReset = () => {
@@ -95,22 +112,27 @@ function Filters() {
   const Results = () => {
     const columns = [
       {
-        title: "المنطقة المختارة",
+        title: "المناطق المختارة",
         dataIndex: "area",
         key: "area",
       },
       {
-        title: "المصرف المختار",
+        title: "المصارف المختارة",
         dataIndex: "masref",
         key: "masref",
       },
       {
-        title: "الموسم المختار",
+        title: "التفرعات المختارة",
+        dataIndex: "branch",
+        key: "branch",
+      },
+      {
+        title: "المواسم المختارة",
         dataIndex: "season",
         key: "season",
       },
       {
-        title: " التاريخ المختار",
+        title: " التاريخ المختارة",
         dataIndex: "date",
         key: "date",
       },
@@ -121,7 +143,8 @@ function Filters() {
         area: area,
         masref: masraf,
         season: season,
-        date: date,
+        branch: branch,
+        date: ` البداية: ${date.start} - النهاية:  ${date.end}`,
       },
     ];
 
@@ -141,25 +164,32 @@ function Filters() {
   const handleMasraf = (v) => {
     setMasraf(v);
   };
+  const handleBranch = (v) => {
+    setBranch(v);
+  };
   const handleArea = (v) => {
     setArea(v);
   };
 
-  const handleDateChange = (v) => {
-    const choosenDate = `${v?._d?.getDate()}-${
-      v?._d?.getMonth() + 1
-    }-${v?._d?.getFullYear()}`;
-    setDate(choosenDate);
+
+  const handleDateChange = (e) => {
+    const [moment1, moment2]=  e;
+
+    const start = `${moment1?._d?.getDate()}-${
+      moment1?._d?.getMonth() + 1
+    }-${moment1?._d?.getFullYear()}`;
+    const end = `${moment2?._d?.getDate()}-${
+      moment2?._d?.getMonth() + 1
+    }-${moment2?._d?.getFullYear()}`;
+    setDate({start, end});
   };
+  console.log(date)
 
   const showResults = () => {
     setShow((prevState) => !prevState);
   };
   return (
     <div id="filters">
-      <h1 className="text-3xl font-semibold text-center mt-10">
-        اختر الوقف المناسب لك{" "}
-      </h1>
 
       <div className="px-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 items-center justify-between max-w-6xl mx-auto py-10 bg-green-500 px-10 rounded-xl my-10 shadow-lg">
@@ -168,22 +198,28 @@ function Filters() {
           <Tree
             handleChange={handleArea}
             value={area}
-            placeholder="من فضلك اختر منطقة"
+            placeholder="   المناطق"
             data={areaData}
           />
           <Tree
             handleChange={handleMasraf}
             value={masraf}
-            placeholder="من فضلك اختر مصرف"
+            placeholder="   المصارف"
             data={masrafData}
+          />
+          <Tree
+            handleChange={handleBranch}
+            value={branch}
+            placeholder=" التفرعات"
+            data={branchesData}
           />
           <Tree
             handleChange={handleSeason}
             value={season}
-            placeholder="اختر الموسم"
+            placeholder=" المواسم"
             data={seasonData}
           />
-          <DatePicker placeholder="اختر التاريخ" onChange={handleDateChange} />
+          <RangePicker rangePlaceholder={["البداية","النهاية"]} onChange={handleDateChange} style={{alignItems: "center"}}   />
         </div>
         <div className="text-center my-10 overflow-hidden rounded-lg">
           <Image src="/map.jpg" height={500} width={800} className="hover:scale-110 transition duration-300 rounded-lg"/>
@@ -209,13 +245,9 @@ function Filters() {
           <div className="flex items-center justify-center">
              {show && (
             <button className="outline-none my-10 bg-green-500 text-white px-5 py-2 rounded-md transition duration-200 hover:bg-green-400 hover:shadow-lg">
-              تصدير كملف اكسيل{" "}
+              تصدير كملف Excell{" "}
             </button>
           )}
-          <button className="outline-none my-10 mr-5 bg-green-500 transition duration-200 hover:bg-green-400 hover:shadow-lg text-white px-5 py-2 rounded-md flex items-center justify-between ">
-            رفع ملف اكسيل{" "}
-            <UploadIcon className="h-5 mr-3" />
-          </button>
           </div>
          
         </div>

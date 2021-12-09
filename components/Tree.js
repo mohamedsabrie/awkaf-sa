@@ -15,6 +15,10 @@ const  Tree  = ({handleChange, value,placeholder, data})=> {
         onChange={handleChange}
         treeDefaultExpandAll
         dropdownStyle	 = {{direction: "rtl"}}
+        multiple	={true}
+        treeCheckable= {true}
+
+
 
       />
     );
