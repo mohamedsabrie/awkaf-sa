@@ -140,33 +140,33 @@ function Filters() {
     const dataSource = [
       {
         key: "1",
-        area: area[0],
-        masref: masraf[0],
-        season: season[0],
-        branch: branch[0],
-        date: ` البداية: ${date.start}`,
+        area: area?.[0],
+        masref: masraf?.[0],
+        season: season?.[0],
+        branch: branch?.[0],
+        date: ` البداية: ${date?.start}`,
       },
       {
         key: "2",
-        area: area[1],
-        masref: masraf[1],
-        season: season[1],
-        branch: branch[1],
-        date: ` النهاية:  ${date.end}`,
+        area: area?.[1],
+        masref: masraf?.[1],
+        season: season?.[1],
+        branch: branch?.[1],
+        date: ` النهاية:  ${date?.end}`,
       },
       {
         key: "3",
-        area: area[2],
-        masref: masraf[2],
-        season: season[2],
-        branch: branch[2],
+        area: area?.[2],
+        masref: masraf?.[2],
+        season: season?.[2],
+        branch: branch?.[2],
       },
       {
         key: "4",
-        area: area[3],
-        masref: masraf[3],
-        season: season[3],
-        branch: branch[3],
+        area: area?.[3],
+        masref: masraf?.[3],
+        season: season?.[3],
+        branch: branch?.[3],
       },
     ];
 
@@ -242,7 +242,7 @@ function Filters() {
             placeholder=" المواسم"
             data={seasonData}
           />
-          <RangePicker rangePlaceholder={["البداية","النهاية"]} onChange={handleDateChange} style={{alignItems: "center"}}   />
+          <RangePicker placeholder={["البداية","النهاية"]} onChange={handleDateChange}  />
         </div>
         <div className="text-center my-10 overflow-hidden rounded-lg">
           <Image src="/map.jpg" height={500} width={800} className="hover:scale-110 transition duration-300 rounded-lg"/>

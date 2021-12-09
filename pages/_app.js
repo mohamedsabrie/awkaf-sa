@@ -8,7 +8,7 @@ import ar_EG from 'antd/lib/locale/ar_EG';
 function MyApp({ Component, pageProps }) {
   return(
     <div dir="rtl">
-        <ConfigProvider locale={ar_EG} direction="rtl">
+        <ConfigProvider  direction="rtl">
         <Component {...pageProps} />
         </ConfigProvider>
     </div>
