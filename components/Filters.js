@@ -96,7 +96,7 @@ const branchesData = [
 
 function Filters() {
   const [season, setSeason] = useState(undefined);
-  const [masraf, setMasraf] = useState(undefined);
+  const [masraf, setMasraf] = useState([]);
   const [branch, setBranch] = useState(undefined);
   const [area, setArea] = useState(undefined);
   const [date, setDate] = useState({});
@@ -140,11 +140,33 @@ function Filters() {
     const dataSource = [
       {
         key: "1",
-        area: area,
-        masref: masraf,
-        season: season,
-        branch: branch,
-        date: ` البداية: ${date.start} - النهاية:  ${date.end}`,
+        area: area[0],
+        masref: masraf[0],
+        season: season[0],
+        branch: branch[0],
+        date: ` البداية: ${date.start}`,
+      },
+      {
+        key: "2",
+        area: area[1],
+        masref: masraf[1],
+        season: season[1],
+        branch: branch[1],
+        date: ` النهاية:  ${date.end}`,
+      },
+      {
+        key: "3",
+        area: area[2],
+        masref: masraf[2],
+        season: season[2],
+        branch: branch[2],
+      },
+      {
+        key: "4",
+        area: area[3],
+        masref: masraf[3],
+        season: season[3],
+        branch: branch[3],
       },
     ];
 
@@ -163,6 +185,7 @@ function Filters() {
 
   const handleMasraf = (v) => {
     setMasraf(v);
+    console.log(v)
   };
   const handleBranch = (v) => {
     setBranch(v);
