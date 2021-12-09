@@ -222,7 +222,7 @@ function Filters() {
           <Tree
             handleChange={handleArea}
             value={area}
-            placeholder="   المناطق"
+            placeholder=" المنطقة"
             data={areaData}
           />
           <Tree
