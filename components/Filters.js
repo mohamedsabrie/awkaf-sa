@@ -106,7 +106,8 @@ function Filters() {
     setSeason(undefined);
     setMasraf(undefined);
     setArea(undefined);
-    setDate(null);
+    setDate({});
+    setBranch(undefined)
   };
 
   const Results = () => {
@@ -132,7 +133,7 @@ function Filters() {
         key: "season",
       },
       {
-        title: " التاريخ المختارة",
+        title: " التاريخ المختار",
         dataIndex: "date",
         key: "date",
       },
@@ -144,7 +145,7 @@ function Filters() {
         masref: masraf?.[0],
         season: season?.[0],
         branch: branch?.[0],
-        date: ` البداية: ${date?.start}`,
+        date: ` البداية: ${date?.start || ""}` ,
       },
       {
         key: "2",
@@ -152,7 +153,7 @@ function Filters() {
         masref: masraf?.[1],
         season: season?.[1],
         branch: branch?.[1],
-        date: ` النهاية:  ${date?.end}`,
+        date: ` النهاية:  ${date?.end || ""}` ,
       },
       {
         key: "3",
