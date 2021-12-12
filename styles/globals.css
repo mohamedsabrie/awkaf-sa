@@ -15,3 +15,21 @@
 .ant-picker-input > input::placeholder{
     
 }
+.ant-select-tree-checkbox-inner:not(.ant-select-tree-checkbox-checked){
+    position: relative;
+}
+.ant-select-tree-checkbox-inner::before{
+
+content:"x";
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100%;
+height: 100%;
+}
+.ant-select-tree-checkbox.ant-select-tree-checkbox-checked > .ant-select-tree-checkbox-inner{
+    background-color: #1890ff;
+}
+.ant-select-tree-checkbox.ant-select-tree-checkbox-checked > .ant-select-tree-checkbox-inner::before{
+    content: "";
+}

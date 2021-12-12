@@ -3,8 +3,11 @@ import Footer from '../components/Footer'
 import Filters from '../components/Filters'
 import Hero from '../components/Hero'
 import Navbar from '../components/Navbar'
+import { useEffect } from 'react'
 
 export default function Home() {
+ 
+  
  
 
   return (
