@@ -29,24 +29,7 @@ const masrafData = [
   {
     title: "مساجد",
     value: "مساجد",
-    children: [
-      {
-        title: "مسجد قباء",
-        value: "مسجد قباء",
-      },
-      {
-        title: "مسجد القبلتين ",
-        value: "مسجد القبلتين",
-      },
-      {
-        title: "مسجد الرحمة ",
-        value: "مسجد الرحمة",
-      },
-      {
-        title: "مسجد الميقات ",
-        value: "مسجد الميقات",
-      },
-    ],
+   
   },
   {
     title: " سكن",
@@ -269,7 +252,7 @@ function Filters() {
           <div className="flex items-center justify-center">
              {show && (
             <button className="outline-none my-10 bg-green-500 text-white px-5 py-2 rounded-md transition duration-200 hover:bg-green-400 hover:shadow-lg">
-              تصدير كملف Excell{" "}
+              تصدير كملف Excel{" "}
             </button>
           )}
           </div>
