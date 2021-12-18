@@ -7,13 +7,12 @@ import Item from "antd/lib/list/Item";
 import { v4 as uuidv4 } from 'uuid';
 import {CheckIcon, ChevronDownIcon, ChevronUpIcon, XIcon} from '@heroicons/react/outline'
 
-function Test() {
+function BranchesTree() {
   const [show, setShow] = useState(false);
   const [br0, setBr0] = useState("bg-white");
   const [br1, setBr1] = useState("bg-white");
   const [br2, setBr2] = useState("bg-white");
   const [branchesResult, setBranchesResult] = useState([]);
-
   const branch1 = useRef(null);
   const branch2 = useRef(null);
   const branch3 = useRef(null);
@@ -25,9 +24,9 @@ function Test() {
 
   const handleBranch1Click = function (e) {
     if (br0 === "bg-white") {
-      setBr0("bg-green-500");
+      setBr0("bg-blue-500");
       setBranchesResult((prev) => [...prev, e]);
-    } else if (br0 === "bg-green-500") {
+    } else if (br0 === "bg-blue-500") {
       setBr0("bg-red-500");
       setBranchesResult((prev) => prev.filter((item) => item !== e));
     } else if (br0 === "bg-red-500") {
@@ -36,9 +35,9 @@ function Test() {
   };
   const handleBranch2Click = function (e) {
     if (br1 === "bg-white") {
-      setBr1("bg-green-500");
+      setBr1("bg-blue-500");
       setBranchesResult((prev) => [...prev, e]);
-    } else if (br1 === "bg-green-500") {
+    } else if (br1 === "bg-blue-500") {
       setBr1("bg-red-500");
       setBranchesResult((prev) => prev.filter((item) => item !== e));
     } else if (br1 === "bg-red-500") {
@@ -47,9 +46,9 @@ function Test() {
   };
   const handleBranch3Click = function (e) {
     if (br2 === "bg-white") {
-      setBr2("bg-green-500");
+      setBr2("bg-blue-500");
       setBranchesResult((prev) => [...prev, e]);
-    } else if (br2 === "bg-green-500") {
+    } else if (br2 === "bg-blue-500") {
       setBr2("bg-red-500");
       setBranchesResult((prev) => prev.filter((item) => item !== e));
     } else if (br2 === "bg-red-500") {
@@ -70,6 +69,7 @@ function Test() {
     }
 
   }
+  
 
   const ResultData = ()=>{
     return (
@@ -86,13 +86,8 @@ function Test() {
   }
 
   return (
-    <div className="flex h-screen  items-center justify-center ">
-      {/* <Tree
-        handleChange={handleBranch}
-        value={branch}
-        placeholder=" التفرعات"
-        data={branchesData}
-      /> */}
+    <div className=" items-center justify-center ">
+     
       <div className="relative">
         <span className="absolute flex items-center justify-center right-0 top-0 w-10 h-[28px] bg-white border"  onClick={handleShowBranches}>
          {show ? <ChevronUpIcon className="h-4" />: <ChevronDownIcon className="h-4" /> } 
@@ -100,7 +95,7 @@ function Test() {
         <div
           ref={inputRef}
           placeholder="Branches"
-          className="min-h-[28px] bg-white border w-[300px] mr-10 flex items-center" 
+          className="min-h-[28px] bg-white border  mr-10 flex items-center" 
         >
           {branchesResult.length ? <ResultData /> : <span className="text-sm text-gray-500 mr-4">التفرعات</span> }
 
@@ -116,36 +111,36 @@ function Test() {
           leaveTo="transform opacity-0 scale-y-0"
           show={show}
         >
-          <div className="absolute flex flex-col top-full left-0 w-full bg-white">
-            <div className="flex items-center gap-x-2 ">
+          <div className="absolute flex flex-col top-full mt-1 left-0 w-full bg-white py-2 px-6">
+            <div className="flex items-center gap-x-2 mb-2 ">
               <span
                 ref={branch1}
                 onClick={() => handleBranch1Click("تفرع1")}
-                className={`w-4 h-4 sp ${br0} border border-gray-500 flex items-center justify-center`}
+            className={`w-4 h-4 rounded-sm ${br0} border border-gray-500 flex items-center justify-center cursor-pointer`}
               >
 
-                {br0 === "bg-green-500" ? <CheckIcon className="h-4" /> : br0 === "bg-red-500"? <XIcon className="h-4" /> : ""}
+                {br0 === "bg-blue-500" ? <CheckIcon className="h-4 text-white " /> : br0 === "bg-red-500"? <XIcon className="h-4" /> : ""}
               </span>
               <p>تفرع1</p>
             </div>
-            <div className="flex items-center gap-x-2 ">
+            <div className="flex items-center gap-x-2  mb-2 ">
               <span
                 ref={branch2}
                 onClick={() => handleBranch2Click("تفرع2")}
-                className={`w-4 h-4 sp ${br1}  border border-gray-500 flex items-center justify-center`}
+                className={`w-4 h-4 rounded-sm  ${br1}  border border-gray-500 flex items-center justify-center cursor-pointer`}
               >
-                {br1 === "bg-green-500" ? <CheckIcon className="h-4" /> : br1 === "bg-red-500"? <XIcon className="h-4" /> : ""}
+                {br1 === "bg-blue-500" ? <CheckIcon className="h-4 text-white " /> : br1 === "bg-red-500"? <XIcon className="h-4" /> : ""}
               </span>
               <p>تفرع2</p>
             </div>
-            <div className="flex items-center gap-x-2 ">
+            <div className="flex items-center gap-x-2  mb-2 ">
               <span
                 ref={branch3}
                 onClick={() => handleBranch3Click("تفرع3")}
-                className={`w-4 h-4 sp ${br2}  border border-gray-500 flex items-center justify-center`}
+                className={`w-4 h-4 rounded-sm  ${br2}  border border-gray-500 flex items-center justify-center cursor-pointer`}
               >
 
-{br2 === "bg-green-500" ? <CheckIcon className="h-4" /> : br2 === "bg-red-500"? <XIcon className="h-4" /> : ""}
+{br2 === "bg-blue-500" ? <CheckIcon className="h-4 text-white " /> : br2 === "bg-red-500"? <XIcon className="h-4" /> : ""}
 
               </span>
               <p>تفرع3</p>
@@ -155,6 +150,7 @@ function Test() {
       </div>
     </div>
   );
+ 
 }
 
-export default Test;
+export default BranchesTree;

@@ -13,19 +13,8 @@
 .ant-picker-input > input::placeholder{
     
 }
-.ant-select-tree-checkbox-inner{
-    display: relative;
-}
-.ant-select-tree-checkbox:not(.ant-select-tree-checkbox-checked) .ant-select-tree-checkbox-inner::before{
-    display: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: red;
-    z-index: 10;
-content : ""   ; 
-}
+
+
 .not_active {
     position: absolute;
     top: 0;
@@ -36,9 +25,6 @@ background-color: red !important;
 z-index: 10;
 
 }
-/* .ant-select-tree-checkbox.ant-select-tree-checkbox-checked > .ant-select-tree-checkbox-inner{
-    background-color: #1890ff;
-} */
 
 
 input::before{
