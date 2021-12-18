@@ -159,7 +159,7 @@ function Filters() {
       <div className="flex items-center   h-full " >
         {branchesResult.map((item) => (
           <div
-            className="flex items-center justify-center px-2 bg-gray-100 mx-1"
+            className="flex h-[26px] rounded-sm items-center justify-center px-2 bg-gray-100 mx-1"
             key={uuidv4()}
           >
             {item}
@@ -333,7 +333,7 @@ function Filters() {
             <div
               ref={inputRef}
               placeholder="Branches"
-              className="min-h-[28px] bg-white border   flex items-center"
+              className="h-[32px] bg-white    flex items-center"
               onClick={handleShowBranches}
             >
               {branchesResult.length ? (
