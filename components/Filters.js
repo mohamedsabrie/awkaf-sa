@@ -101,7 +101,7 @@ function Filters() {
   const inputRef = useRef(null);
   const branchesRef = useRef(null);
 
-  const handleShowBranches = () => {
+  const handleShowBranches = (e) => {
     setShowBranches((prev) => !prev);
   };
 
@@ -139,7 +139,9 @@ function Filters() {
     }
   };
 
-  const removeElement = (v) => {
+  const removeElement = (e,v) => {
+    console.log(e)
+    e.stopPropagation();
     setBranchesResult((prev) => prev.filter((item) => item !== v));
     if (v === "تفرع1") {
       setBr0("bg-white");
@@ -154,17 +156,17 @@ function Filters() {
 
   const ResultData = () => {
     return (
-      <div className="flex items-center   h-full ">
+      <div className="flex items-center   h-full " >
         {branchesResult.map((item) => (
           <div
             className="flex items-center justify-center px-2 bg-gray-100 mx-1"
             key={uuidv4()}
           >
-            <XIcon
-              className="h-3 text-gray-800 cursor-pointer hover:scale-110 ml-2 transition ease-in-out duration-200 "
-              onClick={() => removeElement(item)}
-            />
             {item}
+            <XIcon
+              className="h-[13px] text-gray-500   cursor-pointer hover:scale-110 mr-1 transition ease-in-out duration-200 inputResult "
+              onClick={(e) => removeElement(e,item)}
+            />
           </div>
         ))}
       </div>
@@ -300,6 +302,7 @@ function Filters() {
 
     document.addEventListener("mousedown", checkIfClickedOutside);
 
+
     return () => {
       // Cleanup the event listener
       document.removeEventListener("mousedown", checkIfClickedOutside);
@@ -326,25 +329,17 @@ function Filters() {
           />
 
           <div className="relative" ref={branchesRef}>
-            <span
-              className="absolute flex items-center justify-center right-0 top-0 w-10 h-[28px] bg-white border"
-              onClick={handleShowBranches}
-            >
-              {showBranches ? (
-                <ChevronUpIcon className="h-4 cursor-pointer" />
-              ) : (
-                <ChevronDownIcon className="h-4 cursor-pointer" />
-              )}
-            </span>
+            
             <div
               ref={inputRef}
               placeholder="Branches"
-              className="min-h-[28px] bg-white border  mr-10 flex items-center"
+              className="min-h-[28px] bg-white border   flex items-center"
+              onClick={handleShowBranches}
             >
               {branchesResult.length ? (
                 <ResultData />
               ) : (
-                <span className="text-sm text-gray-500 mr-4">التفرعات</span>
+                <span className="text-sm text-gray-400 mr-4">التفرعات</span>
               )}
             </div>
             <Transition
