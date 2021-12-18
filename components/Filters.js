@@ -178,6 +178,9 @@ function Filters() {
     setDate({});
     setBranch(undefined);
     setBranchesResult([]);
+    setBr0("bg-white");
+    setBr1("bg-white");
+    setBr2("bg-white");
   };
 
   const Results = () => {
@@ -302,6 +305,8 @@ function Filters() {
       document.removeEventListener("mousedown", checkIfClickedOutside);
     };
   }, [showBranches]);
+
+  
 
   return (
     <div id="filters">
