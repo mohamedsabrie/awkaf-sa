@@ -333,7 +333,7 @@ function Filters() {
             <div
               ref={inputRef}
               placeholder="Branches"
-              className="h-[32px] bg-white    flex items-center"
+              className="h-[32px] bg-white rounded-sm    flex items-center"
               onClick={handleShowBranches}
             >
               {branchesResult.length ? (
