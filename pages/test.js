@@ -136,8 +136,9 @@ function Test() {
           placeholder="Branches"
           className="min-h-[28px] bg-white border w-[300px] mr-10 flex items-center" 
         >
+          {result.length ? <ResultData /> : <span className="text-sm text-gray-500 mr-4">التفرعات</span> }
 
-<ResultData />
+
         </div>
         <Transition
           as={Fragment}
@@ -157,7 +158,7 @@ function Test() {
                 className={`w-4 h-4 sp ${br0} border border-gray-500 flex items-center justify-center`}
               >
 
-                {br0 === "bg-green-500" ? <CheckIcon className="h-4" /> : br0 === "bg-red-500"? <XIcon className="h-2" /> : ""}
+                {br0 === "bg-green-500" ? <CheckIcon className="h-4" /> : br0 === "bg-red-500"? <XIcon className="h-4" /> : ""}
               </span>
               <p>تفرع1</p>
             </div>
@@ -165,7 +166,7 @@ function Test() {
               <span
                 ref={branch2}
                 onClick={() => handleBranch2Click("تفرع2")}
-                className={`w-4 h-4 sp ${br1}  border border-gray-500`}
+                className={`w-4 h-4 sp ${br1}  border border-gray-500 flex items-center justify-center`}
               >
                 {br1 === "bg-green-500" ? <CheckIcon className="h-4" /> : br1 === "bg-red-500"? <XIcon className="h-4" /> : ""}
               </span>
@@ -175,7 +176,7 @@ function Test() {
               <span
                 ref={branch3}
                 onClick={() => handleBranch3Click("تفرع3")}
-                className={`w-4 h-4 sp ${br2}  border border-gray-500`}
+                className={`w-4 h-4 sp ${br2}  border border-gray-500 flex items-center justify-center`}
               >
 
 {br2 === "bg-green-500" ? <CheckIcon className="h-4" /> : br2 === "bg-red-500"? <XIcon className="h-4" /> : ""}
