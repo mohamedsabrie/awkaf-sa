@@ -81,9 +81,12 @@ function Filters() {
   const [season, setSeason] = useState(undefined);
   const [masraf, setMasraf] = useState([]);
   const [branch, setBranch] = useState(undefined);
-  const [area, setArea] = useState(undefined);
+  const [area, setArea] = useState(false);
   const [date, setDate] = useState({});
   const [show, setShow] = useState(false);
+  const [branch1, setBranch1] = useState("danger");
+  const [branch2, setBranch2] = useState("bg-white");
+  const [branch3, setBranch3] = useState("bg-white");
 
   const handleReset = () => {
     setSeason(undefined);
@@ -174,8 +177,14 @@ function Filters() {
   const handleBranch = (v) => {
     setBranch(v);
   };
-  const handleArea = (v) => {
+  const handleArea = (v, s, d) => {
     setArea(v);
+    console.log(v);
+    console.log(s);
+    console.log(d.checked);
+    if(d.checked === false){
+    console.log( document.querySelectorAll(".ant-select-tree-checkbox-inner"))
+    }
   };
 
 
@@ -195,6 +204,24 @@ function Filters() {
   const showResults = () => {
     setShow((prevState) => !prevState);
   };
+ 
+
+    
+const handleOpen = (e)=>{
+  if(e === true){
+
+    window.document.querySelectorAll(".ant-select-tree-checkbox-inner").forEach(i=>{
+      i.onclick = ()=>{
+        console.log(i);
+        if(!i.parentElement.classList.contains("ant-select-tree-checkbox-checked")){
+          i.classList.add(branch1);
+
+        }
+        
+      }
+    });
+  }
+}
   return (
     <div id="filters">
 
@@ -207,6 +234,7 @@ function Filters() {
             value={area}
             placeholder=" المنطقة"
             data={areaData}
+            handleOpen={handleOpen}
           />
           <Tree
             handleChange={handleMasraf}

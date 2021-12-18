@@ -1,13 +1,10 @@
 import { TreeSelect } from 'antd';
 import React, {useEffect} from 'react'
-import { ReactSVG } from 'react-svg'
 
 
-const  Tree  = ({handleChange, value,placeholder, data})=> {
-  
+const  Tree  = ({handleChange, value,placeholder, data, handleOpen})=> {
   
 
-  
     return (
       <>
 
@@ -22,6 +19,7 @@ const  Tree  = ({handleChange, value,placeholder, data})=> {
         dropdownStyle	 = {{direction: "rtl"}}
         multiple	={true}
         treeCheckable= {true}
+        onDropdownVisibleChange = {handleOpen}
 
 
 
